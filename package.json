@@ -1,0 +1,29 @@
+{
+  "name": "op-sepolia-proxy-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "scripts": {
+    "proxy:read": "node scripts/readProxy.js",
+    "fee:preview": "node scripts/feePreview.js",
+    "upgrade:check": "node scripts/checkUpgradeAuth.js",
+    "upgrade:exec": "node scripts/upgradeProxy.js",
+    "hh:compile": "cross-env HARDHAT_DISABLE_TELEMETRY_PROMPT=true HARDHAT_DISABLE_TELEMETRY=true npx hardhat compile",
+    "hh:test": "cross-env HARDHAT_DISABLE_TELEMETRY_PROMPT=true HARDHAT_DISABLE_TELEMETRY=true npx hardhat test",
+    "hh:deploy:local": "cross-env HARDHAT_DISABLE_TELEMETRY_PROMPT=true HARDHAT_DISABLE_TELEMETRY=true npx hardhat run hh-scripts/deploySimpleStorage.cjs",
+    "hh:deploy:opsepolia": "cross-env HARDHAT_DISABLE_TELEMETRY_PROMPT=true HARDHAT_DISABLE_TELEMETRY=true npx hardhat run hh-scripts/deploySimpleStorage.cjs --network opSepolia",
+    "hh:verify": "cross-env HARDHAT_DISABLE_TELEMETRY_PROMPT=true HARDHAT_DISABLE_TELEMETRY=true npx hardhat verify --network opSepolia"
+  },
+  "dependencies": {
+    "ethers": "^6.13.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.3.1",
+    "hardhat": "^2.28.6"
+  }
+}
